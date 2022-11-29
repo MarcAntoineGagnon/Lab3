@@ -1,17 +1,13 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.UI.Xaml.Shapes;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace Lab3
 {
     class GestionBD
     {
-        MySqlConnection con;
         static GestionBD gestionBD = null;
+        MySqlConnection con;
 
         public GestionBD()
         {
@@ -34,6 +30,32 @@ namespace Lab3
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
             commande.CommandText = "Select * from employe";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+
+            while (r.Read())
+            {
+                liste.Add(new Employe(r.GetString(0), r.GetString(1), r.GetString(2)));
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
+
+        public ObservableCollection<Employe> getEmployeRecherche(string nom)
+        {
+            if (nom.Trim() == "")
+            {
+                return null;
+            }
+            
+            ObservableCollection<Employe> liste = new ObservableCollection<Employe>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "select * from employe where nom like '%" + nom + "%'";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -91,7 +113,7 @@ namespace Lab3
 
             while (r.Read())
             {
-                liste.Add(new Projet(r.GetString(0), r.GetString(1), r.GetInt32(2), r.GetString(3), r.GetString(4)));
+                liste.Add(new Projet(r.GetString(0), r.GetDateTime(1), r.GetInt32(2), r.GetString(3), r.GetString(4)));
             }
             r.Close();
             con.Close();
@@ -107,7 +129,8 @@ namespace Lab3
             {
                 MySqlCommand commande = new MySqlCommand();
                 commande.Connection = con;
-                commande.CommandText = "insert into employe values(@numero, @debut, @budget, @description, @employe)";
+                commande.CommandText = "Select @nom and @prenom from employe;";
+                commande.CommandText = "insert into projet values(@numero, @debut, @budget, @description, @employe)";
 
                 commande.Parameters.AddWithValue("@numero", p.Numero);
                 commande.Parameters.AddWithValue("@debut", p.Debut);

@@ -8,6 +8,30 @@
     mc:Ignorable="d">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+            <CommandBar Grid.Row="0" Background="Brown" DefaultLabelPosition="Right">
+                
+            <AppBarButton Icon="Add" Label="Employe" x:Name="mAjouter" Click="mAjouter_Click"/>
+            <AppBarButton Icon="Add" Label="Projet" x:Name="mAjouter_projet" Click="mAjouter_projet_Click"/>
+            <AppBarButton Icon="List" Label="Employe" x:Name="mListe" Click="mListe_Click"/>
+            <AppBarButton Icon="List" Label="Projet" x:Name="mListe_projet" Click="mListe_projet_Click"/>
+            <AppBarButton Icon="List" Label="Recherche" x:Name="mRecherche" Click="mRecherche_Click"/>
+            <AppBarButton Icon="Remote"  x:Name="mAcceuil" Click="mAcceuil_Click_1" Label="Retour"/>
+
+        </CommandBar>
+        <Frame x:Name="mainFrame" Grid.Row="1"/>
+
+        <AutoSuggestBox x:Name="autoSuggestBox" QueryIcon="Find"
+                PlaceholderText="entrez du texte"  Width="200"
+                         Margin="10,10,0,0" HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                TextChanged="autoSuggestBox_TextChanged" SuggestionChosen="autoSuggestBox_SuggestionChosen"/>
+
+
 
     </Grid>
 </Window>
