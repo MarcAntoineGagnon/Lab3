@@ -30,14 +30,37 @@ namespace Lab3
         {
             this.InitializeComponent();
             cbEmploye.ItemsSource = GestionBD.getInstance().getEmploye();
+            tbDebut.SelectedDate = DateTime.Now;
         }
         
  
         private void btAjout_Clicke(object sender, RoutedEventArgs e)
         {
+            string num = tbNumero.Text;
             Int32.TryParse(tbNumero.Text, out int numero);
-            if (tbNumero.Text.Trim() == "" && numero != 0 )
+
+            string date = tbDebut.SelectedDate.Value.ToString("MM/dd/yyyy").Trim();
+
+            string budget = tbBudget.Text;
+            int iBudget = 0;
+            Int32.TryParse(tbBudget.Text, out iBudget);
+
+            string description = tbDescription.Text;
+
+            string matricule;
+            if (cbEmploye.SelectedIndex != -1)
             {
+                Employe emp = cbEmploye.SelectedItem as Employe;
+                matricule = emp.Matricule;
+            }
+            else
+                matricule = "";
+
+            int erreur = 0;
+            
+            if (num.Trim() == "" || numero == 0 )
+            {
+                erreur++;
                 tblErreurNumero.Visibility = Visibility.Visible;
             }
             else
@@ -46,18 +69,19 @@ namespace Lab3
 
             }
 
-            if (tbDebut.SelectedDate.Value.ToString("MM/dd/yyyy").Trim() == "")
+            if (date.Trim() == "")
             {
+                erreur++;
                 tblErreurDebut.Visibility = Visibility.Visible;
             }
             else
             {
                 tblErreurDebut.Visibility = Visibility.Collapsed;
             }
-            int Budget = 0;
-            Int32.TryParse(tbBudget.Text, out  Budget);
-            if(Budget > 10000 && Budget < 100000 && tbBudget.Text.Trim() == "")            
+
+            if(iBudget == 0 || iBudget < 10000 || iBudget > 100000 || budget.Trim() == "")            
             {
+                erreur++;
                 tblErreurBudget.Visibility = Visibility.Visible;
             }
             else
@@ -66,26 +90,34 @@ namespace Lab3
             }
             
 
-            if (tbDescription.Text.Trim() == "")
+            if (description.Trim() == "")
             {
+                erreur++;
                 tblErreurDescription.Visibility = Visibility.Visible;
             }
             else
             {
+                erreur++;
                 tblErreurDescription.Visibility = Visibility.Collapsed;
             }
-            Employe emp = cbEmploye.SelectedItem as Employe;
-            if (emp.Matricule == "")
+
+            if (matricule.Trim() == "")
             {
+                erreur++;
                 tblErreurEmploye.Visibility = Visibility.Visible;
             }
             else
             {
+                erreur++;
                 tblErreurEmploye.Visibility = Visibility.Collapsed;
             }
             
-            GestionBD.getInstance().ajouterProjet(new Projet(tbNumero.Text, tbDebut.Date.Date, Budget, tbDescription.Text, emp.Matricule));
-            this.Frame.Navigate(typeof(Afficher_projet));
+            if(erreur == 0)
+            {
+                GestionBD.getInstance().ajouterProjet(new Projet(num, tbDebut.Date.Date, iBudget, description, matricule));
+                this.Frame.Navigate(typeof(Afficher_projet));
+            }
+
         }
     }
 }

@@ -36,10 +36,9 @@ namespace Lab3
             if (e.Parameter != null)
             {
                 Employe employe = (Employe)e.Parameter;
-                
-               //  tbMatricule.Text = employe.Matricule;
-               //   tbNom.Text = employe.Nom;
-              //  tbPrenom.Text = employe.Prenom;
+                tbMatricule.Text = employe.Matricule;
+                tbNom.Text = employe.Nom;
+                tbPrenom.Text = employe.Prenom;
             }
 
         }

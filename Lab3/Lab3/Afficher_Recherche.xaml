@@ -11,32 +11,25 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
-        <GridView x:Name="lUtilisateur"  >
-            <GridView.ItemTemplate>
-                <DataTemplate x:DataType="local:Employe">
-                    <Grid Margin="5" Background="CadetBlue">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="100"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Column="0" Grid.Row="0" Text="Matricule" />
-                        <TextBlock x:Name="tbMatricule" Grid.Column="1" Grid.Row="0" Text="{Binding Matricule}" />
-
-                        <TextBlock Grid.Column="0" Grid.Row="1" Text="Nom" />
-                        <TextBlock x:Name="tbNom" Grid.Column="1" Grid.Row="1" Text="{Binding Nom}" />
-
-                        <TextBlock Grid.Column="0" Grid.Row="2" Text="Prenom" />
-                        <TextBlock x:Name="tbPrenom" Grid.Column="1" Grid.Row="2" Text="{Binding Prenom}" />
-                    </Grid>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
-
+        <TextBlock Text="Matricule : " Grid.Row="1" Grid.Column="1"/>
+        <TextBlock Name="tbMatricule" Text="Test M" Grid.Row="1" Grid.Column="2"/>
+        
+        <TextBlock Text="Nom : " Grid.Row="2" Grid.Column="1"/>
+        <TextBlock Name="tbNom" Text="Test N" Grid.Row="2" Grid.Column="2"/>
+        
+        <TextBlock Text="Prenom : " Grid.Row="3" Grid.Column="1"/>
+        <TextBlock Name="tbPrenom" Text="Test P" Grid.Row="3" Grid.Column="2"/>
     </Grid>
 </Page>

@@ -33,9 +33,9 @@ namespace Lab3
         public MainWindow()
         {
             this.InitializeComponent();
-            mainFrame.Navigate(typeof(Afficher_projet));
+            //mainFrame.Navigate(typeof(Afficher_projet));
             mainFrame.Navigate(typeof(AfficherEmploye));
-            mainFrame.Navigate(typeof(Afficher_Recherche));
+            //mainFrame.Navigate(typeof(Afficher_Recherche));
 
         }
 
@@ -49,7 +49,7 @@ namespace Lab3
         private void autoSuggestBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
         {
             Employe emp = args.SelectedItem as Employe;
-            mainFrame.Navigate(typeof(AjouterEmploye), emp);
+            mainFrame.Navigate(typeof(Afficher_Recherche), emp);
         }
 
         private void mAjouter_Click(object sender, RoutedEventArgs e)

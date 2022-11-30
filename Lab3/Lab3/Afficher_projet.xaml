@@ -25,6 +25,8 @@
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
                                 <TextBlock Grid.Column="0" Grid.Row="0" Text="Numero" />
@@ -36,11 +38,11 @@
                                 <TextBlock Grid.Column="0" Grid.Row="2" Text="Budget" />
                                 <TextBlock Grid.Column="1" Grid.Row="2" Text="{x:Bind Budget}" />
 
-                                <TextBlock Grid.Column="0" Grid.Row="2" Text="Description" />
-                                <TextBlock Grid.Column="1" Grid.Row="2" Text="{x:Bind Description}" />
+                                <TextBlock Grid.Column="0" Grid.Row="3" Text="Description" />
+                                <TextBlock Grid.Column="1" Grid.Row="3" Text="{x:Bind Description}" />
 
-                                <TextBlock Grid.Column="0" Grid.Row="2" Text="Employe" />
-                                <TextBlock Grid.Column="1" Grid.Row="2" Text="{x:Bind Employe}" />
+                                <TextBlock Grid.Column="0" Grid.Row="4" Text="Employe" />
+                                <TextBlock Grid.Column="1" Grid.Row="4" Text="{x:Bind Employe}" />
                             </Grid>
                         </DataTemplate>
                     </GridView.ItemTemplate>

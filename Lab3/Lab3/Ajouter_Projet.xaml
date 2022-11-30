@@ -32,16 +32,16 @@
                 <TextBlock x:Name="tblErreurDebut"   Foreground="Red"  Visibility="Collapsed"/>
 
                 <TextBox x:Name="tbBudget" Header="Budget" Margin="10" PlaceholderText="Entrez le Budget" />
-                <TextBlock x:Name="tblErreurBudget"  Text="vous devez ajouter un Budget" Foreground="Red"  Visibility="Collapsed"/>
+                <TextBlock x:Name="tblErreurBudget"  Text="vous devez ajouter un Budget valide (Entre 10 000 et 100 000)" Foreground="Red"  Visibility="Collapsed"/>
 
                 <TextBox x:Name="tbDescription" Header="Description" Margin="10" PlaceholderText="Entrez la Description" />
-                <TextBlock x:Name="tblErreurDescription"  Text="vous devez ajouter une Déscription" Foreground="Red"  Visibility="Collapsed"/>
+                <TextBlock x:Name="tblErreurDescription"  Text="vous devez ajouter une Description" Foreground="Red"  Visibility="Collapsed"/>
                 
                 <ComboBox x:Name="cbEmploye" PlaceholderText="Choisir employe"  />
 
-                <TextBlock x:Name="tblErreurEmploye"  Text="vous devez ajouter un Matricule" Foreground="Red"  Visibility="Collapsed"/>
+                <TextBlock x:Name="tblErreurEmploye"  Text="vous devez choisir un employe" Foreground="Red"  Visibility="Collapsed"/>
 
-                <Button Name="btAjoute" Grid.Row="7" Grid.Column="1" Content="Validez votre ajout" Background="Black" Foreground="White"
+                <Button Name="btAjoute" Grid.Row="7" Grid.Column="1" Content="Validez votre ajout" Foreground="White"
                  Margin="30" Width="200" HorizontalAlignment="Stretch" Click="btAjout_Clicke"/>
             </StackPanel>
 
