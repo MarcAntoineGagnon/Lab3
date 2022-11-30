@@ -97,7 +97,6 @@ namespace Lab3
             }
             else
             {
-                erreur++;
                 tblErreurDescription.Visibility = Visibility.Collapsed;
             }
 
@@ -108,7 +107,6 @@ namespace Lab3
             }
             else
             {
-                erreur++;
                 tblErreurEmploye.Visibility = Visibility.Collapsed;
             }
             
@@ -116,6 +114,10 @@ namespace Lab3
             {
                 GestionBD.getInstance().ajouterProjet(new Projet(num, tbDebut.Date.Date, iBudget, description, matricule));
                 this.Frame.Navigate(typeof(Afficher_projet));
+            }
+            else
+            {
+                erreur = 0;
             }
 
         }

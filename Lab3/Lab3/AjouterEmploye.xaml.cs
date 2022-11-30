@@ -44,8 +44,11 @@ namespace Lab3
 
         private void btAjout_Click(object sender, RoutedEventArgs e)
         {
+            int erreur = 0;
+
             if (tbMatricule.Text.Trim() == "")
             {
+                erreur++;
                 tblErreurMatricule.Visibility = Visibility.Visible;
             }
             else
@@ -56,6 +59,7 @@ namespace Lab3
 
             if (tbNom.Text.Trim() == "")
             {
+                erreur++;
                 tblErreurNom.Visibility = Visibility.Visible;
             }
             else
@@ -65,15 +69,23 @@ namespace Lab3
 
             if (tbPrenom.Text.Trim() == "")
             {
+                erreur++;
                 tblErreurPrenom.Visibility = Visibility.Visible;
             }
             else
             {
                 tblErreurPrenom.Visibility = Visibility.Collapsed;
             }
+            if(erreur ==0)
+            {
+                GestionBD.getInstance().ajouterEmploye(new Employe(tbMatricule.Text, tbNom.Text, tbPrenom.Text));
+                this.Frame.Navigate(typeof(AfficherEmploye));
+            }
+            else
+            {
+                erreur = 0;
+            }
 
-            GestionBD.getInstance().ajouterEmploye(new Employe(tbMatricule.Text, tbNom.Text, tbPrenom.Text));
-            this.Frame.Navigate(typeof(AfficherEmploye));
         }
     }
 }

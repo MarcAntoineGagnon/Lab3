@@ -31,7 +31,7 @@
                 <TextBox x:Name="tbPrenom" Header="Prenom" Margin="10" PlaceholderText="Entrez le Prenom" />
                 <TextBlock x:Name="tblErreurPrenom"  Text="vous devez ajouter un Prenom" Foreground="Red"  Visibility="Collapsed"/>
 
-                <Button Name="btAjout" Grid.Row="7" Grid.Column="1" Content="Validez votre ajout" Background="Black" Foreground="White"
+                <Button Name="btAjout" Grid.Row="7" Grid.Column="1" Content="Validez votre ajout" Foreground="White"
                  Margin="30" Width="200" HorizontalAlignment="Stretch" Click="btAjout_Click"/>
             </StackPanel>
 
