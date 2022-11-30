@@ -5,7 +5,7 @@ Marc-Antoine Gagnon :
 - GestionBD / Employe / Projet
 - Afficher projet
 - Ajouter projet
-- recherche projet
+- recherche employe
 
 
 Yassine Harti : 
